@@ -12,8 +12,8 @@ API_ID = environ.get('API_ID', '6')
 API_HASH = environ.get('API_HASH', 'eb06d4abfb49dc3eeb1aeb98ae0f581e')
 BOT_TOKEN = environ.get('BOT_TOKEN')
 PDISK_API_KEY = environ.get('PDISK_API_KEY')
-CHANNEL = environ.get('CHANNEL', 'MyTestBotZ')
-THUMB_URL = environ.get('THUMB_URL', 'https://telegra.ph/file/7389a320199583a2ac493.jpg')
+CHANNEL = environ.get('CHANNEL', 'Moviezbarn')
+THUMB_URL = environ.get('THUMB_URL', 'https://telegra.ph/file/7a3c7eeb40a1da7909576.jpg')
 
 bot = Client('pdisk bot',
              api_id=API_ID,
@@ -27,7 +27,7 @@ bot = Client('pdisk bot',
 async def start(bot, message):
     await message.reply(
         f"**Hiya 👋{message.chat.first_name}!**\n\n"
-        "**A Simple PDisk Uploader Bot.\n\n➠ Send Me Any Direct Link, YouTube Link Or Video Link  I Will Upload To PDisk And Give Direct Link\n\nMade With❤BY @MyTestBotZ**")
+        "**A Simple PDisk Uploader Bot.\n\n➠ Send Me Any Direct Link, YouTube Link Or Video Link  I Will Upload To PDisk And Give Direct Link\n\nMade With❤BY @moviezbarn**")
 
     
 @bot.on_message(filters.text & filters.private)
@@ -93,7 +93,7 @@ async def pdisk_up(link):
         title_new = os.path.basename(title_new.path)
         title_pdisk = '@' + CHANNEL + title_new
     res = requests.get(
-        'http://linkapi.net/open/create_item?link_type=link&content_src=' + link + '&source=2000&cover_url='+THUMB_URL+'&api_key=' + PDISK_API_KEY + '&dir_id=0&title=' + title_pdisk + '&description=Join_@MyTestBotZ_' + 'CHANNEL' + '_and_support_us')
+        'http://linkapi.net/open/create_item?link_type=link&content_src=' + link + '&source=2000&cover_url='+THUMB_URL+'&api_key=' + PDISK_API_KEY + '&dir_id=0&title=' + title_pdisk + '&description=Join_@moviezbarn_' + 'CHANNEL' + '_and_support_us')
     data = res.json()
     data = dict(data)
     print(data)
@@ -150,7 +150,7 @@ async def addFooter(str):
 <b> Note : Your Video File is Available on Above LINK ones Upload Process is Complete, it Take Time Depend on Your File Size & My Server Upload Speed
 So,be Patient </b>  😴😴😴😴     
 ━━━━━━━━━━━━━━━
-⦿ Made With♥️BY @OO7ROBot
+⦿ Made With♥️BY @moviezbarn
 ━━━━━━━━━━━━━━━
 ✪ »JOIN CHANNEL ➡️ t.me/""" + CHANNEL
     return str + footer
